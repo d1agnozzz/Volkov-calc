@@ -4,3 +4,6 @@ C:\Users\klepo\source\repos\Calc 2019\Calc 2019\Debug\Calc_2019.Form1.resources
 D:\Учёба\ОП\Volkov-calc\Calc 2019\Debug\Calc 2019.vcxprojAssemblyReference.cache
 D:\Учёба\ОП\Volkov-calc\Calc 2019\Debug\Calc_2019.Form1.resources
 D:\Учёба\ОП\Volkov-calc\Calc 2019\Debug\Calc 2019.vcxproj.GenerateResource.cache
+C:\Users\klepo\Учёба\ОП\Volkov-calc\Calc 2019\Debug\Calc 2019.vcxprojAssemblyReference.cache
+C:\Users\klepo\Учёба\ОП\Volkov-calc\Calc 2019\Debug\Calc_2019.Form1.resources
+C:\Users\klepo\Учёба\ОП\Volkov-calc\Calc 2019\Debug\Calc 2019.vcxproj.GenerateResource.cache

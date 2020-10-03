@@ -186,7 +186,8 @@ namespace Calc {
 			this->txt2->Size = System::Drawing::Size(124, 20);
 			this->txt2->TabIndex = 9;
 			this->txt2->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
-			this->txt2->TextChanged += gcnew System::EventHandler(this, &Form1::txt2_TextChanged);
+			this->txt2->TextChanged += gcnew System::EventHandler(this, &Form1::txt1_TextChanged);
+			this->txt2->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txt1_KeyPress);
 			// 
 			// txtResult
 			// 
@@ -255,7 +256,6 @@ namespace Calc {
 			this->MaximizeBox = false;
 			this->Name = L"Form1";
 			this->Text = L"Calc";
-
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -267,6 +267,12 @@ namespace Calc {
 			}
 			if (txt2->Text->StartsWith(",")) {
 				txt2->Text = "0" + txt2->Text;
+			}
+			if (txt1->Text->EndsWith(",")) {
+				txt1->Text = txt1->Text + "0";
+			}
+			if (txt2->Text->EndsWith(",")) {
+				txt2->Text = txt2->Text + "0";
 			}
 		}
 
@@ -295,7 +301,7 @@ namespace Calc {
 				if (err == 1) {
 					lblOper->Text = L"Неверные данные:\nнесколько запятых";
 				}
-				if (err == 2) {
+				else if (err == 2) {
 					lblOper->Text = L"Неверные данные:\nнесколько минусов";
 				}
 				else {
@@ -402,6 +408,7 @@ private: System::Void txt2_TextChanged(System::Object^ sender, System::EventArgs
 private: System::Void lbl1_Click(System::Object^ sender, System::EventArgs^ e) {
 	lblOper->Text = L"Пасхалка!";
 }
+
 };
 }
 

@@ -1,0 +1,6 @@
+﻿  MyForm.cpp
+C:\Users\klepo\Учёба\ОП\Volkov-calc\Calc 2019\Form1.h(392,14): warning C4244: инициализация: преобразование "wchar_t" в "char", возможна потеря данных
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  Создание кода...
+  MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  Calc 2019.vcxproj -> C:\Users\klepo\Учёба\ОП\Volkov-calc\x64\Release\Calc_new.exe
