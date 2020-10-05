@@ -49,6 +49,9 @@ namespace Calc {
 	private: System::Windows::Forms::Button^ btnMultiply;
 	private: System::Windows::Forms::Button^ btnDivide;
 	private: System::Windows::Forms::Button^ btnMinus;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ lblErr;
+
 
 
 
@@ -86,11 +89,13 @@ namespace Calc {
 			this->btnMultiply = (gcnew System::Windows::Forms::Button());
 			this->btnDivide = (gcnew System::Windows::Forms::Button());
 			this->btnMinus = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->lblErr = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// btnClose
 			// 
-			this->btnClose->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnClose->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->btnClose->Location = System::Drawing::Point(243, 185);
 			this->btnClose->Name = L"btnClose";
@@ -102,7 +107,7 @@ namespace Calc {
 			// 
 			// btnReset
 			// 
-			this->btnReset->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnReset->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->btnReset->Location = System::Drawing::Point(243, 10);
 			this->btnReset->Name = L"btnReset";
@@ -114,7 +119,7 @@ namespace Calc {
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnAdd->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->btnAdd->Location = System::Drawing::Point(243, 150);
 			this->btnAdd->Name = L"btnAdd";
@@ -173,7 +178,7 @@ namespace Calc {
 			// 
 			this->txt1->Location = System::Drawing::Point(110, 60);
 			this->txt1->Name = L"txt1";
-			this->txt1->Size = System::Drawing::Size(124, 20);
+			this->txt1->Size = System::Drawing::Size(106, 20);
 			this->txt1->TabIndex = 8;
 			this->txt1->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			this->txt1->TextChanged += gcnew System::EventHandler(this, &Form1::txt1_TextChanged);
@@ -183,7 +188,7 @@ namespace Calc {
 			// 
 			this->txt2->Location = System::Drawing::Point(110, 90);
 			this->txt2->Name = L"txt2";
-			this->txt2->Size = System::Drawing::Size(124, 20);
+			this->txt2->Size = System::Drawing::Size(106, 20);
 			this->txt2->TabIndex = 9;
 			this->txt2->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			this->txt2->TextChanged += gcnew System::EventHandler(this, &Form1::txt1_TextChanged);
@@ -194,13 +199,13 @@ namespace Calc {
 			this->txtResult->Location = System::Drawing::Point(110, 120);
 			this->txtResult->Name = L"txtResult";
 			this->txtResult->ReadOnly = true;
-			this->txtResult->Size = System::Drawing::Size(124, 20);
+			this->txtResult->Size = System::Drawing::Size(106, 20);
 			this->txtResult->TabIndex = 10;
 			this->txtResult->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			// 
 			// btnMultiply
 			// 
-			this->btnMultiply->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnMultiply->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->btnMultiply->Location = System::Drawing::Point(243, 43);
 			this->btnMultiply->Name = L"btnMultiply";
@@ -212,7 +217,7 @@ namespace Calc {
 			// 
 			// btnDivide
 			// 
-			this->btnDivide->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnDivide->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->btnDivide->Location = System::Drawing::Point(243, 78);
 			this->btnDivide->Name = L"btnDivide";
@@ -224,7 +229,7 @@ namespace Calc {
 			// 
 			// btnMinus
 			// 
-			this->btnMinus->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnMinus->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->btnMinus->Location = System::Drawing::Point(243, 114);
 			this->btnMinus->Name = L"btnMinus";
@@ -234,11 +239,33 @@ namespace Calc {
 			this->btnMinus->UseVisualStyleBackColor = true;
 			this->btnMinus->Click += gcnew System::EventHandler(this, &Form1::btnMinus_Click);
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(0, 0);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(0, 13);
+			this->label1->TabIndex = 13;
+			// 
+			// lblErr
+			// 
+			this->lblErr->AutoSize = true;
+			this->lblErr->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->lblErr->ForeColor = System::Drawing::Color::Maroon;
+			this->lblErr->Location = System::Drawing::Point(36, 175);
+			this->lblErr->Name = L"lblErr";
+			this->lblErr->Size = System::Drawing::Size(0, 19);
+			this->lblErr->TabIndex = 14;
+			this->lblErr->Click += gcnew System::EventHandler(this, &Form1::label2_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(354, 231);
+			this->Controls->Add(this->lblErr);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnMinus);
 			this->Controls->Add(this->btnDivide);
 			this->Controls->Add(this->btnMultiply);
@@ -293,45 +320,70 @@ namespace Calc {
 				if (txt1->Text->IndexOf("-") != txt1->Text->LastIndexOf("-") || txt2->Text->IndexOf("-") != txt2->Text->LastIndexOf("-")) {
 					err = 2;
 				}
+				
+				if (err == 1) {
+					lblErr->Text = L"Неверные данные:\nнесколько запятых";
+					txtResult->Text = "";
+				}
+				else {
+					lblErr->Text = "";
+				}
+				
 				d1 = Convert::ToSingle(txt1->Text);
 				d2 = Convert::ToSingle(txt2->Text);
 			}
 
 			catch (...) {
-				if (err == 1) {
-					lblOper->Text = L"Неверные данные:\nнесколько запятых";
+				if (txt1->Text->Length == 0 || txt2->Text->Length == 0) {
+					lblErr->Text = L"Неверные данные : \nПустое поле";
+					txtResult->Text = "";
+					err = 3;
 				}
-				else if (err == 2) {
-					lblOper->Text = L"Неверные данные:\nнесколько минусов";
+				else if (txt1->Text->IndexOf("-") != txt1->Text->LastIndexOf("-") || txt2->Text->IndexOf("-") != txt2->Text->LastIndexOf("-")) {
+					err = 2;
+					lblErr->Text = L"Неверные данные\nНесколько минусов";
+				}
+				else if (txt1->Text->IndexOf(",") != txt1->Text->LastIndexOf(",") || txt2->Text->IndexOf(",") != txt2->Text->LastIndexOf(",")) {
+					err = 1;
+					lblErr->Text = L"Неверные данные:\nНесколько запятых";
 				}
 				else {
-					lblOper->Text = L"Неверные данные";
-				}
-				opCase = -1;
+					lblErr->Text = L"Неверные данные";
+					err = 4;
 
+				}
 			}
+			
 
 			switch (opCase) {
 			case 0:
 				this->lblOper->Text = L"Сложение";
-				result = d1 + d2;
-				this->txtResult->Text = Convert::ToString(result);
+				if (err == 0) {
+					result = d1 + d2;
+					this->txtResult->Text = Convert::ToString(result);
+				}
 				break;
 			case 1:
 				this->lblOper->Text = L"Вычитание";
-				result = d1 - d2;
-				this->txtResult->Text = Convert::ToString(result);
+				if (err == 0) {
+					result = d1 - d2;
+					this->txtResult->Text = Convert::ToString(result);
+				}
 				break;
 			case 2:
 				this->lblOper->Text = L"Умножение";
-				result = d1 * d2;
-				this->txtResult->Text = Convert::ToString(result);
+				if (err == 0) {
+					result = d1 * d2;
+					this->txtResult->Text = Convert::ToString(result);
+				}
 				break;
 			case 3:
 				this->lblOper->Text = L"Деление";
 				if (d2 != 0) {
-					result = d1 / d2;
-					this->txtResult->Text = Convert::ToString(result);
+					if (err == 0) {
+						result = d1 / d2;
+						this->txtResult->Text = Convert::ToString(result);
+					}
 				}
 				else {
 					this->lblOper->Text = L"Нельзя делить на ноль";
@@ -409,6 +461,8 @@ private: System::Void lbl1_Click(System::Object^ sender, System::EventArgs^ e) {
 	lblOper->Text = L"Пасхалка!";
 }
 
+private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
 
